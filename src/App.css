@@ -1,0 +1,15 @@
+body {
+  background-color: #1d1d1d;
+}
+
+main {
+  background-color: #323232;
+  height: 99vh;
+  width: 40rem;
+  margin: 0.5vh auto;
+  border-radius: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
