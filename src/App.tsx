@@ -31,6 +31,16 @@ function App() {
 		// localStorage.setItem('no-spoilers-config', JSON.stringify(spoilers))
 		// if ((JSON.parse(localStorage.getItem('no-spoilers-config') ?? '[]') as string[]).length === 0) {
 		// } else return
+		// window.postMessage('this is a test', 'https://www.youtube.com/*')
+
+		window.addEventListener('message', (e: any) => {
+			console.log(e)
+		})
+
+		return () =>
+			window.removeEventListener('message', (e: any) => {
+				console.log(e)
+			})
 	}, [])
 
 	return (
@@ -44,6 +54,13 @@ function App() {
 					onClick={() => {
 						setSpoilers([...spoilers, (document.getElementById(`inp`) as HTMLInputElement).value])
 
+						// iframeRef.current?.contentWindow?.postMessage(
+						// 	// JSON.stringify(localStorage.getItem('no-spoilers-config')),
+						// 	// ['test', 'yo'],
+						// 	// JSON.parse(localStorage.getItem('no-spoilers-config') ?? 'null'),
+						// 	'this is a test',
+						// 	'https://www.youtube.com/*'
+						// )
 						// iframeRef.current!.contentWindow?.postMessage(
 						// 	JSON.stringify(localStorage.getItem('no-spoilers-config')),
 						// 	'https://www.youtube.com/embed/'
@@ -68,7 +85,7 @@ function App() {
 							// ['test', 'yo'],
 							// JSON.parse(localStorage.getItem('no-spoilers-config') ?? 'null'),
 							'this is a test',
-							'https://www.youtube.com/*'
+							'https://www.youtube.com/'
 						)
 					}, 5000)
 				}}></iframe>
